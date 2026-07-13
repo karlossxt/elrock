@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3H9PZRVX86"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3H9PZRVX86');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELROCK | Archivo de Música</title>
+    <meta name="description" content="Archivo de música rock, metal y underground. Reseñas, estrenos y coberturas.">
+    <meta property="og:title" content="ELROCK | Archivo de Música">
+    <meta property="og:description" content="Archivo de música rock, metal y underground. Reseñas, estrenos y coberturas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elrockdetodoslosdias.com.mx/musica.html">
+    <meta property="og:image" content="logo-rock.png">
+    <link rel="icon" type="image/png" href="logo-rock.png">
+    <link rel="stylesheet" href="fontawesome-all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root { --current-color: var(--red); }
+        .section-header {
+            background-color: var(--red);
+            padding: 120px 40px 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid black;
+        }
+        .section-header::after {
+            content: "ARCHIVE";
+            position: absolute;
+            bottom: -40px; right: -20px;
+            font-family: 'Syne';
+            font-size: 15rem;
+            opacity: 0.1;
+            font-style: italic;
+            pointer-events: none;
+        }
+        .back-link {
+            font-family: 'Space Mono';
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 10rem);
+            line-height: 0.8;
+            text-transform: uppercase;
+            font-style: italic;
+            position: relative;
+            z-index: 10;
+            word-break: break-word;
+        }
+        .section-meta {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Space Mono';
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 10;
+        }
+        .meta-line { height: 2px; width: 100px; background: white; opacity: 0.5; }
+        .archive-container { max-width: 1300px; margin: 0 auto; padding: 80px 40px; }
+        .archive-info { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 40px; }
+        .archive-count { font-family: 'Space Mono'; font-size: 12px; color: #71717a; text-transform: uppercase; }
+        .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 40px; }
+        .article-card { text-decoration: none; color: inherit; display: block; border-bottom: 2px solid transparent; padding-bottom: 20px; transition: 0.3s; }
+        .article-card:hover { border-bottom-color: var(--red); }
+        .card-image { height: 250px; background-color: var(--zinc-900); margin-bottom: 20px; overflow: hidden; border: 1px solid #333; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: 0.5s ease; }
+        .article-card:hover .card-image img { filter: grayscale(0); transform: scale(1.05); }
+        .card-tag { font-family: 'Space Mono'; color: var(--red); font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .card-title { font-family: 'Syne'; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase; margin-bottom: 15px; }
+        .card-excerpt { font-family: 'Space Mono'; font-size: 12px; color: #a1a1aa; line-height: 1.4; }
+
+        @media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .section-header { padding: 80px 20px 40px; }
+            .section-header::after { font-size: 6rem; bottom: -10px; }
+            .section-title { font-size: 3.5rem; }
+            .section-meta { flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 20px; }
+            .meta-line { width: 50px; }
+            .main-nav { flex-direction: column; align-items: flex-start; padding: 15px 20px; gap: 15px; }
+            .nav-links { width: 100%; overflow-x: auto; padding-bottom: 5px; -ms-overflow-style: none; scrollbar-width: none; gap: 10px; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { margin: 0; padding: 6px 12px; border: 1px solid #333; border-radius: 4px; white-space: nowrap; }
+            .nav-cta-btn { display: none; }
+            .archive-container { padding: 40px 20px; }
+            .article-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="index.html" class="logo">
+            <img src="logo-rock.png" alt="RDT." class="nav-logo-icon">
+        </a>
+        <div class="burger-menu" id="burger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="menu">
+            <a href="musica.html">Música</a>
+            <a href="escena.html">Escena</a>
+            <a href="bytemos.html" style="color: var(--green);">BYTEMOS</a>
+            <a href="cultura.html" style="color: var(--amber);">Cultura</a>
+            <a href="pantallas.html">Pantallas</a>
+            <a href="toyrockeando.html">Toy Rockeando</a>
+            <a href="voces-del-ruido.html" style="color: var(--cyan);">Voces del Ruido</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <header class="section-header">
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+        <h1 class="section-title">MÚSICA<span style="opacity: 0.3;">.</span></h1>
+        <div class="section-meta">
+            <span>Explorando el Ruido</span>
+            <div class="meta-line"></div>
+            <span>Registro 2018-2026</span>
+        </div>
+    </header>
+
+    <main class="archive-container">
+        <div class="archive-info">
+            <span class="archive-count">Total de entradas:</span>
+            <span class="archive-count" style="color: var(--red);">● Actualizado hoy</span>
+        </div>
+
+        <div class="article-grid">
+            <a href="notasabril/postSaurom.html" class="article-card">
+                <div class="card-image"><img src="notasabril/saurom-esperanza-iris.jpg" alt="Saurom" loading="lazy"></div>
+                <span class="card-tag">RESEÑA</span>
+                <h2 class="card-title">SAUROM: El ritual acústico en el Esperanza Iris</h2>
+            </a>
+            <a href="notasmarzo/postcoilguns.html" class="article-card">
+                <div class="card-image"><img src="notasmarzo/coilguns-promo.jpg" alt="Coilguns" loading="lazy"></div>
+                <span class="card-tag">AGENDA</span>
+                <h2 class="card-title">COILGUNS REGRESA A MÉXICO: Ruido, Caos y Humus Records</h2>
+            </a>
+            <a href="notasmarzo/postknofest.html" class="article-card">
+                <div class="card-image"><img src="notasmarzo/knotfest-cartel.jpg" alt="Knotfest México" loading="lazy"></div>
+                <span class="card-tag">AGENDA</span>
+                <h2 class="card-title">KNOTFEST MÉXICO 2026 | HOJA DE RUTA DEL CAOS</h2>
+            </a>
+             <a href="notasmarzo/postsevenred.html" class="article-card">
+                <div class="card-image"><img src="notasmarzo/seven-red-lions-tour.jpg" alt="Seven Red Lions" loading="lazy"></div>
+                <span class="card-tag">AGENDA</span>
+                <h2 class="card-title">SEVEN RED LIONS: El rugido de Londres llega a México</h2>
+            </a>
+            <a href="notasmarzo/postDirty.html" class="article-card">
+                <div class="card-image"><img src="notasmarzo/dirty-sound-magnet-album.jpg" alt="Dirty Sound Magnet" loading="lazy"></div>
+                <span class="card-tag">ESTRENO</span>
+                <h2 class="card-title">DIRTY SOUND MAGNET: Resurrección y Psicodelia</h2>
+            </a>
+            <a href="post-automatic-kafka.html" class="article-card">
+                <div class="card-image"><img src="portadaau.jpg" alt="Automatic Kafka" loading="lazy"></div>
+                <span class="card-tag">Rock Español</span>
+                <h2 class="card-title">Automatic Kafka estrena INMORTAL</h2>
+                <p class="card-excerpt">Desde Asturias Automatic Kafka vuelven con más fuerza que nunca.</p>
+            </a>
+            <a href="post-kiss-alive.html" class="article-card">
+                <div class="card-image"><img src="ALIVE-ALBUM-COVER-ALTERNATE.jpg" alt="Kiss Alive!" loading="lazy"></div>
+                <span class="card-tag">Rock Clasico</span>
+                <h2 class="card-title">KISS ALIVE!</h2>
+                <p class="card-excerpt">A 50 AÑOS DE KISS ALIVE!</p>
+            </a>
+             <a href="post-ace-frehley.html" class="article-card">
+                <div class="card-image"><img src="acefre.jpg" alt="Ace Frehley" loading="lazy"></div>
+                <span class="card-tag">MÚSICA // MEMORIAL</span>
+                <h2 class="card-title">Ace Frehley: De la Tierra a Jendell</h2>
+                <p class="card-excerpt">Un viaje estelar a través de sus riffs inmortales.</p>
+            </a>
+            <a href="post-pearl-jam-ten.html" class="article-card">
+                <div class="card-image"><img src="pearljam10.jpg" alt="Pearl Jam Ten" loading="lazy"></div>
+                <span class="card-tag">Crítica</span>
+                <h2 class="card-title">30 años del Diez de Pearl Jam</h2>
+                <p class="card-excerpt">Un disco que no envejece</p>
+             </a>
+             <a href="post-the-adicts.html" class="article-card">
+                <div class="card-image"><img src="theadoctsmx.png" alt="The Adicts" loading="lazy"></div>
+                <span class="card-tag">Reseña</span>
+                <h2 class="card-title">The Adicts, El adiós de la Sonrisa del PUNK</h2>
+                <p class="card-excerpt">La despedida de los escenarios.</p>
+            </a>
+            <a href="CMBA.html" class="article-card">
+                <div class="card-image"><img src="cmba1.jpg" alt="CMBA Punk Rock Fest" loading="lazy"></div>
+                <span class="card-tag">RESEÑA</span>
+                <h2 class="card-title">CMBA</h2>
+                <p class="card-excerpt">Punk y nostalgia en el CMBA Punk Rock Fest Vol.3</p>
+            </a>
+            <a href="nota-mixup.html" class="article-card">
+                <div class="card-image"><img src="mixup1.jpg" alt="Mixup" loading="lazy"></div>
+                <span class="card-tag">Crítica</span>
+                <h2 class="card-title">MIXUP</h2>
+                <p class="card-excerpt">Mixup Génova: su última canción</p>
+             </a>
+             <a href="We Missed Ourselve.html" class="article-card">
+                <div class="card-image"><img src="We Missed Ourselve.jpg" alt="We Missed Ourselves" loading="lazy"></div>
+                <span class="card-tag">Reseña</span>
+                <h2 class="card-title">We Missed Ourselves</h2>
+                <p class="card-excerpt">Así se vivió We Missed Ourselves, el primer festival Emo.</p>
+            </a>
+             <a href="nota-origenes.html" class="article-card">
+                <div class="card-image"><img src="metalsimpsons.jpg" alt="Orígenes del Metal en México" loading="lazy"></div>
+                <span class="card-tag">Reseña</span>
+                <h2 class="card-title">ORIGENES DEL METAL EN MÉXICO</h2>
+                <p class="card-excerpt">Así se forjó el metal mexicano.</p>
+            </a>
+            <a href="kurt.html" class="article-card">
+                <div class="card-image"><img src="kurt-cobain-portrait.jpg" alt="Kurt Cobain" loading="lazy"></div>
+                <span class="card-tag">EFEMERIDES</span>
+                <h2 class="card-title">Kurt Cobain</h2>
+                <p class="card-excerpt">30 Años de Ruido Eterno</p>
+             </a>
+             <a href="delinquents.html" class="article-card">
+                <div class="card-image"><img src="delinquent-1.jpg" alt="Delinquent Habits" loading="lazy"></div>
+                <span class="card-tag">Reseña</span>
+                <h2 class="card-title">Delinquent Habits</h2>
+                <p class="card-excerpt">El Regreso de los Delincuentes.</p>
+            </a>
+             <a href="radioheadgira.html" class="article-card">
+                <div class="card-image"><img src="radiohead-live.jpg" alt="Radiohead" loading="lazy"></div>
+                <span class="card-tag">GIRA</span>
+                <h2 class="card-title">RADIOHEAD</h2>
+                <p class="card-excerpt">El Regreso y la Distancia.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="fanzine-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h5 class="f-title">SOCIAL</h5>
+                <div class="f-links-list">
+                    <a href="https://www.instagram.com/elrockdetodoslosdias/" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                    <a href="https://www.facebook.com/ElRockdetodoslosDias" target="_blank"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                    <a href="https://twitter.com/ElRockde" target="_blank"><i class="fab fa-x-twitter"></i> TWITTER / X</a>
+                    <a href="https://www.tiktok.com/@elrockdetodoslosdias" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">CONTACTO DIRECTO</h5>
+                <div class="f-contact-links">
+                    <a href="https://wa.me/525519204557" target="_blank"><i class="fab fa-whatsapp"></i> 55 1920 4557</a>
+                    <a href="mailto:elrockdetodoslosdias@gmail.com"><i class="far fa-envelope"></i> elrockdetodoslosdias@gmail.com</a>
+                    <a href="mailto:prensa@elrockdetodoslosdias.com.mx"><i class="far fa-envelope"></i> prensa@elrockdetodoslosdias.com.mx</a>
+                </div>
+            </div>
+            <div class="footer-column footer-logo-col">
+                <img src="logo-rock.png" alt="El Rock de todos los Días" class="footer-logo-img">
+                <p class="f-tagline">ARCHIVO INDEPENDIENTE<br>DE CULTURA Y RUIDO.</p>
+            </div>
+            <div class="footer-column">
+                <h5 class="f-title">NAVEGACIÓN</h5>
+                <div class="f-links-list">
+                    <a href="index.html">INICIO</a>
+                    <a href="musica.html">MÚSICA</a>
+                    <a href="escena.html">ESCENA</a>
+                    <a href="bytemos.html">BYTEMOS</a>
+                    <a href="cultura.html">CULTURA</a>
+                    <a href="pantallas.html">PANTALLAS</a>
+                    <a href="toyrockeando.html">TOY ROCKEANDO</a>
+                    <a href="voces-del-ruido.html">VOCES DEL RUIDO</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">COMUNIDAD</h5>
+                <div class="f-links-list">
+                    <a href="https://discord.gg/Ey7sdqwDaW" target="_blank"><i class="fab fa-discord"></i> DISCORD</a>
+                    <a href="https://www.twitch.tv/elrockdetodoslosdias" target="_blank"><i class="fab fa-twitch"></i> TWITCH</a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <span>© 2026 EL ROCK DE TODOS LOS DÍAS</span>
+            <span>EL SILENCIO ES RUIDO QUE NO SE ATREVE A SER ESCUCHADO</span>
+        </div>
+    </footer>
+
+    <!-- RADIO PLAYER -->
+    <div class="radio-player" id="radioPlayer">
+        <div class="radio-toggle" id="radioToggle"><i class="fas fa-chevron-up"></i></div>
+        <div class="radio-content">
+            <div class="radio-live-dot"></div>
+            <span class="radio-label">EN VIVO — EL ROCK DE TODOS LOS DÍAS</span>
+            <audio id="zenoAudio" preload="none">
+                <source src="https://stream.zeno.fm/suqqst6xaq8uv" type="audio/mpeg">
+            </audio>
+            <button class="radio-play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <input type="range" class="radio-volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+            <button class="radio-close" id="radioClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            menu.classList.toggle('active');
+        });
+    }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

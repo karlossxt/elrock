@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELROCK | Archivo de Cultura</title>
+    <meta name="description" content="Cultura, letras y antropología del rock. Teatro, reseñas y más.">
+    <meta property="og:title" content="ELROCK | Archivo de Cultura">
+    <meta property="og:description" content="Cultura, letras y antropología del rock.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elrockdetodoslosdias.com.mx/cultura.html">
+    <meta property="og:image" content="logo-rock.png">
+    <link rel="icon" type="image/png" href="logo-rock.png">
+    <link rel="stylesheet" href="fontawesome-all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root { --current-color: var(--amber); }
+        .section-header {
+            background-color: var(--amber); padding: 120px 40px 60px; position: relative; overflow: hidden; border-bottom: 8px solid black;
+        }
+        .section-header::after {
+            content: "SOCIETY"; position: absolute; bottom: -40px; right: -20px;
+            font-family: 'Syne'; font-size: 15rem; opacity: 0.1; font-style: italic; pointer-events: none;
+        }
+        .back-link { font-family: 'Space Mono'; color: black; text-decoration: none; font-size: 12px; font-weight: 900; text-transform: uppercase; z-index: 10; position: relative; margin-bottom: 20px; display: inline-block; }
+        .section-title { font-family: 'Syne'; font-size: clamp(2.5rem, 8vw, 6rem); line-height: 0.8; text-transform: uppercase; font-style: italic; color: black; position: relative; z-index: 10; word-break: break-word; }
+        .archive-container { max-width: 1300px; margin: 0 auto; padding: 80px 40px; }
+        .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 40px; }
+        .article-card { text-decoration: none; color: inherit; display: block; transition: 0.3s; }
+        .card-image { height: 250px; background-color: #18181b; margin-bottom: 20px; overflow: hidden; border: 1px solid #333; position: relative; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: 0.5s; }
+        .article-card:hover .card-image img { filter: grayscale(0); transform: scale(1.05); }
+        .card-tag { font-family: 'Space Mono'; color: var(--amber); font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block; letter-spacing: 1px; }
+        .card-title { font-family: 'Syne'; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase; margin-bottom: 15px; }
+        @media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .section-header { padding: 80px 20px 40px; }
+            .section-header::after { font-size: 6rem; bottom: -10px; }
+            .section-title { font-size: 3rem; }
+            .archive-container { padding: 40px 20px; }
+            .article-grid { grid-template-columns: 1fr; gap: 40px; }
+            .main-nav { flex-direction: column; align-items: flex-start; padding: 15px 20px; gap: 15px; }
+            .nav-links { width: 100%; overflow-x: auto; padding-bottom: 5px; -ms-overflow-style: none; scrollbar-width: none; gap: 10px; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { margin: 0; padding: 6px 12px; border: 1px solid #333; border-radius: 4px; white-space: nowrap; }
+            .nav-cta-btn { display: none; }
+            .card-image { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="index.html" class="logo">
+            <img src="logo-rock.png" alt="RDT." class="nav-logo-icon">
+        </a>
+        <div class="burger-menu" id="burger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="menu">
+            <a href="musica.html">Música</a>
+            <a href="escena.html">Escena</a>
+            <a href="bytemos.html" style="color: var(--green);">BYTEMOS</a>
+            <a href="cultura.html" style="color: var(--amber);">Cultura</a>
+            <a href="pantallas.html">Pantallas</a>
+            <a href="toyrockeando.html">Toy Rockeando</a>
+            <a href="voces-del-ruido.html" style="color: var(--cyan);">Voces del Ruido</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <header class="section-header">
+        <a href="index.html" class="back-link">← Archivo Central</a>
+        <h1 class="section-title">Los Letreadores</h1>
+        <div style="font-family:'Space Mono'; font-size:10px; margin-top:20px; color:black; font-weight:500;">
+            [ REGISTRO ANTROPOLÓGICO ] <br> // RUIDO, LETRAS Y CALLE
+        </div>
+    </header>
+
+    <main class="archive-container">
+        <div class="article-grid">
+            <a href="lacata.html" class="article-card">
+                <div class="card-image"><img src="lacata1.jpg" alt="Romance Øn Line" loading="lazy"></div>
+                <span class="card-tag">Teatro</span>
+                <h2 class="card-title">Romance Øn Line</h2>
+                <p style="font-size: 11px; color: #71717a; font-family: 'Space Mono'; line-height: 1.4;">Asistimos al estreno de la obra musical "Romance Øn Line".</p>
+            </a>
+            <a href="notasabril/postElCulto.html" class="article-card">
+                <div class="card-image"><img src="notasabril/el-culto-inauguracion.jpg" alt="El Culto" loading="lazy"></div>
+                <span class="card-tag">RESEÑA</span>
+                <h2 class="card-title">EL CULTO: Inauguración y Caos en Pantitlán</h2>
+                <p style="font-size: 11px; color: #71717a; font-family: 'Space Mono'; line-height: 1.4;">Los Letreadores en Neza.</p>
+            </a>
+            <a href="#" class="article-card">
+                <div class="card-image"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800" alt="Estética de Guerrilla" loading="lazy"></div>
+                <span class="card-tag">Moda</span>
+                <h2 class="card-title">Estética de Guerrilla: Ropa como armadura</h2>
+                <p style="font-size: 11px; color: #71717a; font-family: 'Space Mono'; line-height: 1.4;">Analizamos el auge del Techwear y cómo las subculturas usan la moda como acto político.</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="fanzine-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h5 class="f-title">SOCIAL</h5>
+                <div class="f-links-list">
+                    <a href="https://www.instagram.com/elrockdetodoslosdias/" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                    <a href="https://www.facebook.com/ElRockdetodoslosDias" target="_blank"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                    <a href="https://twitter.com/ElRockde" target="_blank"><i class="fab fa-x-twitter"></i> TWITTER / X</a>
+                    <a href="https://www.tiktok.com/@elrockdetodoslosdias" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">CONTACTO DIRECTO</h5>
+                <div class="f-contact-links">
+                    <a href="https://wa.me/525519204557" target="_blank"><i class="fab fa-whatsapp"></i> 55 1920 4557</a>
+                    <a href="mailto:elrockdetodoslosdias@gmail.com"><i class="far fa-envelope"></i> elrockdetodoslosdias@gmail.com</a>
+                    <a href="mailto:prensa@elrockdetodoslosdias.com.mx"><i class="far fa-envelope"></i> prensa@elrockdetodoslosdias.com.mx</a>
+                </div>
+            </div>
+            <div class="footer-column footer-logo-col">
+                <img src="logo-rock.png" alt="El Rock de todos los Días" class="footer-logo-img">
+                <p class="f-tagline">ARCHIVO INDEPENDIENTE<br>DE CULTURA Y RUIDO.</p>
+            </div>
+            <div class="footer-column">
+                <h5 class="f-title">NAVEGACIÓN</h5>
+                <div class="f-links-list">
+                    <a href="index.html">INICIO</a>
+                    <a href="musica.html">MÚSICA</a>
+                    <a href="escena.html">ESCENA</a>
+                    <a href="bytemos.html">BYTEMOS</a>
+                    <a href="cultura.html">CULTURA</a>
+                    <a href="pantallas.html">PANTALLAS</a>
+                    <a href="toyrockeando.html">TOY ROCKEANDO</a>
+                    <a href="voces-del-ruido.html">VOCES DEL RUIDO</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">COMUNIDAD</h5>
+                <div class="f-links-list">
+                    <a href="https://discord.gg/Ey7sdqwDaW" target="_blank"><i class="fab fa-discord"></i> DISCORD</a>
+                    <a href="https://www.twitch.tv/elrockdetodoslosdias" target="_blank"><i class="fab fa-twitch"></i> TWITCH</a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <span>© 2026 EL ROCK DE TODOS LOS DÍAS</span>
+            <span>EL SILENCIO ES RUIDO QUE NO SE ATREVE A SER ESCUCHADO</span>
+        </div>
+    </footer>
+
+    <!-- RADIO PLAYER -->
+    <div class="radio-player" id="radioPlayer">
+        <div class="radio-toggle" id="radioToggle"><i class="fas fa-chevron-up"></i></div>
+        <div class="radio-content">
+            <div class="radio-live-dot"></div>
+            <span class="radio-label">EN VIVO — EL ROCK DE TODOS LOS DÍAS</span>
+            <audio id="zenoAudio" preload="none">
+                <source src="https://stream.zeno.fm/suqqst6xaq8uv" type="audio/mpeg">
+            </audio>
+            <button class="radio-play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <input type="range" class="radio-volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+            <button class="radio-close" id="radioClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            menu.classList.toggle('active');
+        });
+    }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

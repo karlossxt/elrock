@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOY ROCKEANDO | El Rock Nos Une</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="logo-rock.png">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="fontawesome-all.min.css">  
+     
+ 
+    <!-- Fuentes y Font Awesome para el ícono de Facebook -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    
+    <style>
+        html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+        :root { --bg: #0a0a0a; --fest-yellow: #facc15; --white: #eeeeee; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* Textura de fondo */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            opacity: 0.1; pointer-events: none; z-index: 999;
+        }
+
+        /* Navbar */
+        .main-nav {
+            position: sticky; top: 0; z-index: 1000; background: #000;
+            border-bottom: 2px solid var(--fest-yellow); padding: 15px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: 'Syne'; font-size: 1.8rem; font-weight: 800; text-decoration: none; color: white; font-style: italic; }
+        .logo span { color: var(--fest-yellow); }
+
+        /* Hero */
+        .fest-hero { background-color: var(--fest-yellow); padding: 80px 40px; border-bottom: 10px solid black; display: flex; flex-direction: column; align-items: center; }
+        .event-logo-container {
+            width: 250px; height: 250px; background: black; margin-bottom: 30px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; border: 5px solid white; box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+        }
+        .event-logo-container img { max-width: 90%; max-height: 90%; object-fit: contain; }
+        .fest-hero h1 { font-family: 'Syne'; font-size: clamp(3rem, 10vw, 8rem); color: black; line-height: 0.8; text-transform: uppercase; text-align: center; letter-spacing: -2px; }
+
+        /* Manifiesto Breve */
+        .fest-manifesto { max-width: 1100px; margin: 0 auto; padding: 80px 20px 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+        .solidarity-badge { background: var(--fest-yellow); color: black; padding: 40px; border: 4px solid white; transform: rotate(-2deg); box-shadow: 15px 15px 0px var(--fest-yellow); }
+        .solidarity-badge h3 { font-family: 'Syne'; font-size: 2.5rem; line-height: 1; margin-bottom: 15px; }
+        .manifesto-text { border-left: 2px solid var(--fest-yellow); padding-left: 40px; }
+        .manifesto-text p { font-size: 1.3rem; line-height: 1.5; color: #ccc; margin-bottom: 25px; }
+        .manifesto-text strong { color: var(--fest-yellow); font-family: 'Syne'; }
+
+        /* Sección: Misión y Objetivo */
+        .about-section {
+            max-width: 1100px; margin: 0 auto 80px; padding: 0 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+        .about-box { background: #111; padding: 50px 40px; border: 1px solid #222; position: relative; transition: 0.3s; }
+        .about-box:hover { background: #151515; border-color: #444; }
+        .about-box::before {
+            content: ""; position: absolute; top: -2px; left: -2px; width: 40px; height: 40px;
+            border-top: 4px solid var(--fest-yellow); border-left: 4px solid var(--fest-yellow);
+        }
+        .about-box::after {
+            content: ""; position: absolute; bottom: -2px; right: -2px; width: 40px; height: 40px;
+            border-bottom: 4px solid var(--fest-yellow); border-right: 4px solid var(--fest-yellow);
+        }
+        .about-box h3 { font-family: 'Syne'; font-size: 2.5rem; color: white; margin-bottom: 20px; text-transform: uppercase; display: flex; align-items: center; gap: 15px; }
+        .about-box h3 span { color: var(--fest-yellow); font-size: 1.5rem; }
+        .about-box p { font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.7; color: #bbb; text-align: justify; }
+
+        /* Ediciones */
+        .editions-section { max-width: 1400px; margin: 0 auto; padding: 50px 20px 100px; border-top: 1px dashed #333; }
+        .editions-title { font-family: 'Syne'; font-size: 4rem; color: white; text-align: center; margin-bottom: 60px; text-transform: uppercase; margin-top: 40px;}
+        .editions-title span { color: var(--fest-yellow); }
+
+        .editions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .ed-card {
+            position: relative; height: 350px; border: 2px solid #333;
+            text-decoration: none; overflow: hidden; display: block;
+            transition: 0.4s; background: black;
+        }
+        .ed-card:hover { border-color: var(--fest-yellow); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(250, 204, 21, 0.2); z-index: 10; }
+        .ed-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.5); transition: 0.5s; }
+        .ed-card:hover img { filter: grayscale(0) brightness(0.8); transform: scale(1.05); }
+
+        .ed-card-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .ed-card-info h2 { font-family: 'Syne'; font-size: 4rem; color: var(--fest-yellow); line-height: 1; margin-bottom: 5px; text-shadow: 2px 2px 0px #000; }
+        .ed-card-info p { font-family: 'Space Mono'; color: white; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Footer y Botón de Facebook */
+        .f-fest { background: var(--fest-yellow); color: black; padding: 80px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .f-fest h2 { font-family: 'Syne'; font-size: 3rem; line-height: 0.8; margin-bottom: 40px; }
+        
+        .btn-facebook {
+            display: inline-flex; align-items: center; gap: 15px;
+            background: black; color: var(--fest-yellow);
+            padding: 15px 35px; border: 3px solid black;
+            font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.2rem;
+            text-decoration: none; text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-facebook i { font-size: 1.5rem; }
+        .btn-facebook:hover { background: transparent; color: black; transform: translateY(-5px); box-shadow: 0 10px 0px rgba(0,0,0,0.1); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .fest-manifesto { grid-template-columns: 1fr; gap: 40px; }
+            .about-section { grid-template-columns: 1fr; gap: 30px; }
+            .editions-title { font-size: 2.5rem; }
+            .btn-facebook { width: 100%; justify-content: center; font-size: 1rem; }
+        }
+        @media (max-width: 768px) {
+    /* Reducir el logo del evento para que no ocupe toda la pantalla */
+    .event-logo-container { width: 180px; height: 180px; }
+    
+    /* Mejorar el manifiesto en móvil */
+    .fest-manifesto { padding: 40px 20px; }
+    .solidarity-badge { padding: 20px; text-align: center; }
+    .solidarity-badge h3 { font-size: 1.8rem; }
+    
+    /* Ajustar las cajas de "Misión y Objetivo" */
+    .about-section { margin-bottom: 40px; }
+    .about-box { padding: 30px 20px; }
+    .about-box h3 { font-size: 1.8rem; }
+    
+    /* Títulos de ediciones */
+    .editions-title { font-size: 2.5rem; }
+    
+    /* El footer */
+    .f-fest { padding: 60px 20px; }
+    .f-fest h2 { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes muy finos para pantallas pequeñas */
+    .main-nav { padding: 15px 20px; }
+    .logo { font-size: 1.4rem; }
+    .fest-hero { padding: 40px 20px; }
+    .ed-card-info h2 { font-size: 3rem; }
+}
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <a href="index.html" class="logo">
+            <img src="logo-rock.png" alt="RDT." class="nav-logo-icon">
+        </a>
+        <div class="burger-menu" id="burger"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="menu">
+            <a href="musica.html">Música</a>
+            <a href="escena.html">Escena</a>
+            <a href="bytemos.html" style="color: var(--green);">BYTEMOS</a>
+            <a href="cultura.html" style="color: var(--amber);">Cultura</a>
+            <a href="pantallas.html">Pantallas</a>
+            <a href="toyrockeando.html">Toy Rockeando</a>
+            <a href="voces-del-ruido.html" style="color: var(--cyan);">Voces del Ruido</a>
+            <a href="nosotros.html">Nosotros</a>
+        </div>
+    </nav>
+
+    <header class="fest-hero">
+        <div class="event-logo-container">
+            <img src="trlogo.png" alt="Toy Rockeando Logo">
+        </div>
+        <h1>TOY <br>ROCKEANDO</h1>
+    </header>
+
+    <section class="fest-manifesto">
+        <div class="solidarity-badge">
+            <h3>ENTRADA:<br>1 JUGUETE</h3>
+            <p>Nuevo o en buen estado.<br>Pasión por el ruido,<br>amor por la causa.</p>
+        </div>
+        <div class="manifesto-text">
+            <p><strong>Toy Rockeando</strong> es un evento solidario anual que une la pasión por el rock independiente mexicano con la acción comunitaria.</p>
+            <p>El público asiste sin costo de entrada, pero con una condición simbólica: donar un juguete nuevo o en buen estado. Todo lo recolectado se entrega a instituciones que apoyan a infancias en situación de vulnerabilidad.</p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-box">
+            <h3><span>//</span> Misión</h3>
+            <p>Nuestra misión es crear un impacto positivo en la comunidad al generar una recolecta de juguetes durante la temporada de fin de año, con el propósito de brindar alegría y regalos a los niños que más lo necesitan. Nos comprometemos a colaborar con diversas instituciones dedicadas al bienestar de los menores, contribuyendo a la felicidad y el desarrollo de estos niños.</p>
+        </div>
+        
+        <div class="about-box">
+            <h3><span>//</span> Objetivo</h3>
+            <p>Nuestro objetivo principal es organizar una exitosa recolecta de juguetes durante la temporada navideña, proporcionando juguetes a niños desfavorecidos. Además, buscamos impulsar la música independiente al ofrecer un evento donde las bandas donen su tiempo y talento para crear un festival que promueva una conexión especial con el público. A través de esta combinación de esfuerzos, pretendemos fomentar un espíritu solidario y de comunidad, brindando alegría a los niños y apoyando a talentosos artistas independientes.</p>
+        </div>
+    </section>
+
+    <section class="editions-section">
+        <h2 class="editions-title">MEMORIA <span>RUIDOSA</span></h2>
+        
+        <div class="editions-grid">
+            <a href="edicion-v.html" class="ed-card">
+                <img src="toy25.jpg" alt="Edición V">
+                <div class="ed-card-info">
+                    <h2>V</h2>
+                    <p>Edición 2026</p>
+                </div>
+            </a>
+
+            <a href="edicion-iv.v.html" class="ed-card">
+                <img src="trp1.jpg" alt="Edición IV.V">
+                <div class="ed-card-info">
+                    <h2 style="color:white;">IV.V</h2>
+                    <p>Edición 2025 / Rock por los Peluditos</p>
+                </div>
+            </a>
+
+            <a href="edicion-iv.html" class="ed-card">
+                <img src="tr4.jpg" alt="Edición IV">
+                <div class="ed-card-info">
+                    <h2>IV</h2>
+                    <p>Edición 2025</p>
+                </div>
+            </a>
+
+            <a href="edicion-iii.html" class="ed-card">
+                <img src="tr3.jpg" alt="Edición III">
+                <div class="ed-card-info">
+                    <h2>III</h2>
+                    <p>Edición 2023</p>
+                </div>
+            </a>
+
+            <a href="edicion-ii.html" class="ed-card">
+                <img src="tr2.jpg" alt="Edición II">
+                <div class="ed-card-info">
+                    <h2>II</h2>
+                    <p>Edición 2022</p>
+                </div>
+            </a>
+
+            <a href="edicion-i.html" class="ed-card">
+                <img src="tr1.jpg" alt="Edición I">
+                <div class="ed-card-info">
+                    <h2>I</h2>
+                    <p>Edición 2021</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="fanzine-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h5 class="f-title">SOCIAL</h5>
+                <div class="f-links-list">
+                    <a href="https://www.instagram.com/elrockdetodoslosdias/" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                    <a href="https://www.facebook.com/ElRockdetodoslosDias" target="_blank"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                    <a href="https://twitter.com/ElRockde" target="_blank"><i class="fab fa-x-twitter"></i> TWITTER / X</a>
+                    <a href="https://www.tiktok.com/@elrockdetodoslosdias" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">CONTACTO DIRECTO</h5>
+                <div class="f-contact-links">
+                    <a href="https://wa.me/525519204557" target="_blank"><i class="fab fa-whatsapp"></i> 55 1920 4557</a>
+                    <a href="mailto:elrockdetodoslosdias@gmail.com"><i class="far fa-envelope"></i> elrockdetodoslosdias@gmail.com</a>
+                    <a href="mailto:prensa@elrockdetodoslosdias.com.mx"><i class="far fa-envelope"></i> prensa@elrockdetodoslosdias.com.mx</a>
+                </div>
+            </div>
+            <div class="footer-column footer-logo-col">
+                <img src="logo-rock.png" alt="El Rock de todos los Días" class="footer-logo-img">
+                <p class="f-tagline">ARCHIVO INDEPENDIENTE<br>DE CULTURA Y RUIDO.</p>
+            </div>
+            <div class="footer-column">
+                <h5 class="f-title">NAVEGACIÓN</h5>
+                <div class="f-links-list">
+                    <a href="index.html">INICIO</a>
+                    <a href="musica.html">MÚSICA</a>
+                    <a href="escena.html">ESCENA</a>
+                    <a href="bytemos.html">BYTEMOS</a>
+                    <a href="cultura.html">CULTURA</a>
+                    <a href="pantallas.html">PANTALLAS</a>
+                    <a href="toyrockeando.html">TOY ROCKEANDO</a>
+                    <a href="voces-del-ruido.html">VOCES DEL RUIDO</a>
+                </div>
+                <h5 class="f-title" style="margin-top:30px;">COMUNIDAD</h5>
+                <div class="f-links-list">
+                    <a href="https://discord.gg/Ey7sdqwDaW" target="_blank"><i class="fab fa-discord"></i> DISCORD</a>
+                    <a href="https://www.twitch.tv/elrockdetodoslosdias" target="_blank"><i class="fab fa-twitch"></i> TWITCH</a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <span>© 2026 EL ROCK DE TODOS LOS DÍAS</span>
+            <span>EL SILENCIO ES RUIDO QUE NO SE ATREVE A SER ESCUCHADO</span>
+        </div>
+    </footer>
+
+    <!-- RADIO PLAYER -->
+    <div class="radio-player" id="radioPlayer">
+        <div class="radio-toggle" id="radioToggle"><i class="fas fa-chevron-up"></i></div>
+        <div class="radio-content">
+            <div class="radio-live-dot"></div>
+            <span class="radio-label">EN VIVO — EL ROCK DE TODOS LOS DÍAS</span>
+            <audio id="zenoAudio" preload="none">
+                <source src="https://stream.zeno.fm/suqqst6xaq8uv" type="audio/mpeg">
+            </audio>
+            <button class="radio-play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <input type="range" class="radio-volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+            <button class="radio-close" id="radioClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    if (burger && menu) {
+        burger.addEventListener('click', function () {
+            menu.classList.toggle('active');
+        });
+    }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
