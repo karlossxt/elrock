@@ -465,68 +465,6 @@
 
 </div>
 
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(index) {
-        slides.forEach(s => s.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    let timer = setInterval(nextSlide, 5000);
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            clearInterval(timer);
-            currentSlide = i;
-            showSlide(i);
-            timer = setInterval(nextSlide, 5000);
-        });
-    });
-
-    const burger = document.getElementById('burger');
-    const menu = document.getElementById('menu');
-    const overlay = document.getElementById('navOverlay');
-
-    function closeMenu() {
-        menu.classList.remove('active');
-        overlay.classList.remove('active');
-    }
-
-    burger.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        overlay.classList.toggle('active');
-    });
-
-    overlay.addEventListener('click', closeMenu);
-
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 600) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    }, { passive: true });
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-
     <!-- RADIO PLAYER -->
     <div class="radio-player" id="radioPlayer">
         <div class="radio-toggle" id="radioToggle" aria-label="Alternar reproductor de radio"><i class="fas fa-chevron-up" aria-hidden="true"></i></div>
@@ -546,5 +484,67 @@
     <button class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <script src="main.js"></script>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        let timer = setInterval(nextSlide, 5000);
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                clearInterval(timer);
+                currentSlide = i;
+                showSlide(i);
+                timer = setInterval(nextSlide, 5000);
+            });
+        });
+
+        const burger = document.getElementById('burger');
+        const menu = document.getElementById('menu');
+        const overlay = document.getElementById('navOverlay');
+
+        function closeMenu() {
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', closeMenu);
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

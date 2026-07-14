@@ -30,7 +30,7 @@ body::before {
     background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
     opacity: 0.045;
     pointer-events: none;
-    z-index: 1;
+    z-index: -1;
 }
 
 /* ============================================
