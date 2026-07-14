@@ -1,0 +1,22 @@
+{
+    "name": "El Rock de Todos los Días",
+    "short_name": "ERDTLD",
+    "description": "Archivo independiente de cultura y ruido. Rock, metal y música underground mexicana.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0d0d0d",
+    "theme_color": "#dc2626",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "logo-rock.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "logo-rock.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

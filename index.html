@@ -10,6 +10,11 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dc2626">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="logo-rock.png">
     <title>El Rock de todos los Días | Música con Maciza y Cueros</title>
     <meta name="description" content="Archivo independiente de cultura y ruido. Rock, metal y música underground mexicana.">
     <meta name="google-site-verification" content="hL7eMihNEkz9KDl6pdTm0L86GparI1IQ5pdPaqA9PfY" />
@@ -18,7 +23,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elrockdetodoslosdias.com.mx/">
     <meta property="og:image" content="https://elrockdetodoslosdias.com.mx/logo-rock.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="El Rock de Todos los Días">
+    <meta property="og:locale" content="es_MX">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ElRockde">
+    <meta name="twitter:creator" content="@ElRockde">
     <meta name="twitter:title" content="El Rock de todos los Días">
     <meta name="twitter:description" content="Archivo independiente de cultura y ruido. Rock, metal y música underground mexicana.">
     <meta name="twitter:image" content="https://elrockdetodoslosdias.com.mx/logo-rock.png">
@@ -29,6 +40,9 @@
     <link rel="stylesheet" href="fontawesome-all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&family=Inter:wght@400;700;900&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="logo-rock.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
@@ -57,6 +71,19 @@
         "knowsLanguage": "es"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "El Rock de Todos los Días",
+        "url": "https://elrockdetodoslosdias.com.mx",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://elrockdetodoslosdias.com.mx/buscar?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
     <style>
         /* All styles moved to styles.css */
     </style>
@@ -69,7 +96,7 @@
         <a href="index.html" class="logo">
             <img src="logo-rock.png" alt="RDT." class="nav-logo-icon">
         </a>
-        <div class="burger-menu" id="burger"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu" id="burger" aria-label="Abrir menú de navegación" role="button" tabindex="0"><i class="fas fa-bars"></i></div>
         <div class="nav-links" id="menu">
             <a href="musica.html">Música</a>
             <a href="escena.html">Escena</a>
@@ -80,6 +107,7 @@
             <a href="voces-del-ruido.html" style="color: var(--cyan);">Voces del Ruido</a>
             <a href="nosotros.html">Nosotros</a>
         </div>
+        <div class="nav-overlay" id="navOverlay"></div>
     </nav>
 
     <section class="hero-full-container">
@@ -119,10 +147,40 @@
         </div>
     </section>
 
+    <!-- DESTACADAS — SCROLL HORIZONTAL -->
+    <section class="destacadas-strip">
+        <div class="destacadas-header">
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            <span>DESTACADAS</span>
+        </div>
+        <div class="destacadas-scroll">
+            <a href="notasmayo/postAnnaFiori.html" class="destacada-card">
+                <img src="notasmayo/anna-fiori-metztli-hero.jpg" alt="Anna Fiori" width="120" height="68" loading="lazy">
+                <span class="destacada-title">ANNA FIORI: Metztli</span>
+            </a>
+            <a href="notasmarzo/postJoyas.html" class="destacada-card">
+                <img src="notasmarzo/joyas-rock-mexicano-hero.jpg" alt="Joyas del Rock" width="120" height="68" loading="lazy">
+                <span class="destacada-title">5 Joyas del Rock Mexicano</span>
+            </a>
+            <a href="notasmayo/postAryem2.html" class="destacada-card">
+                <img src="notasmayo/aryem-agnes-hero.jpg" alt="Aryem" width="120" height="68" loading="lazy">
+                <span class="destacada-title">ARYEM: Agnes</span>
+            </a>
+            <a href="notasmayo/postOTortuga.html" class="destacada-card">
+                <img src="notasmayo/o-tortuga-hero.jpg" alt="O Tortuga" width="120" height="68" loading="lazy">
+                <span class="destacada-title">O TORTUGA: 10 años</span>
+            </a>
+            <a href="notasabril/postSaurom.html" class="destacada-card">
+                <img src="notasabril/saurom-esperanza-iris.jpg" alt="Saurom" width="120" height="68" loading="lazy">
+                <span class="destacada-title">SAUROM: Esperanza Iris</span>
+            </a>
+        </div>
+    </section>
+
     <!-- NUEVOS DECIBELES — SECCIÓN DEDICADA -->
     <section class="decibels-dedicated">
         <div class="section-header-bar" style="margin:0 0 30px;">
-            <h3><i class="fab fa-spotify" style="color:#1DB954;"></i> NUEVOS DECIBELES</h3>
+            <h3><i class="fab fa-spotify" style="color:#1DB954;" aria-hidden="true"></i> NUEVOS DECIBELES</h3>
             <span style="font-family:'Space Mono'; font-size:10px; color:#555;">LA SEMANA EN RUIDO</span>
         </div>
         <div class="decibels-grid">
@@ -261,6 +319,34 @@
             </a>
         </section>
 
+        <div class="section-divider">/// VIDEOS ///</div>
+
+        <div class="section-header-bar">
+            <h3 style="color:var(--cyan);">ÚLTIMOS VIDEOS</h3>
+            <a href="https://www.youtube.com/@elrockdetodoslosdias" target="_blank" style="font-family:'Space Mono'; font-size:10px; color:#555; text-decoration:none;">VER TODO +</a>
+        </div>
+
+        <section class="videos-grid">
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video destacado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <span class="video-title">ENTREVISTA: La nueva escena del rock mexicano</span>
+            </div>
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video destacado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <span class="video-title">EN VIVO: Sesión acústica desde el sótano</span>
+            </div>
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video destacado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <span class="video-title">TOP 10: Los discos que definieron el mes</span>
+            </div>
+        </section>
+
         <div class="ruido-wrapper">
             <div class="ruido-fondo-rojo"></div>
             <section class="ruido-box-white">
@@ -297,21 +383,54 @@
 
     </main>
 
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-inner">
+            <div class="newsletter-text">
+                <h3>SUSCRÍBETE AL RUIDO</h3>
+                <p>Recibe las mejores notas, estrenos y eventos directo en tu correo. Sin spam, solo ruido puro.</p>
+            </div>
+            <form class="newsletter-form" action="#" method="post">
+                <input type="email" placeholder="Tu correo electrónico" required aria-label="Correo electrónico para newsletter">
+                <button type="submit" aria-label="Suscribirse al newsletter">SUSCRIBIRME</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ETIQUETAS -->
+    <section class="tags-section">
+        <div class="tags-inner">
+            <h4>ETIQUETAS</h4>
+            <div class="tags-list">
+                <a href="escena.html" class="tag-link">Rock Nacional</a>
+                <a href="musica.html" class="tag-link">Metal</a>
+                <a href="escena.html" class="tag-link">Punk</a>
+                <a href="escena.html" class="tag-link">Festivales</a>
+                <a href="voces-del-ruido.html" class="tag-link">Entrevistas</a>
+                <a href="musica.html" class="tag-link">Hard Rock</a>
+                <a href="musica.html" class="tag-link">Indie</a>
+                <a href="cultura.html" class="tag-link">Cultura</a>
+                <a href="pantallas.html" class="tag-link">Pantallas</a>
+                <a href="toyrockeando.html" class="tag-link">Toy Rockeando</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="fanzine-footer">
         <div class="footer-container">
             <div class="footer-column">
                 <h5 class="f-title">SOCIAL</h5>
                 <div class="f-links-list">
-                    <a href="https://www.instagram.com/elrockdetodoslosdias/" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
-                    <a href="https://www.facebook.com/ElRockdetodoslosDias" target="_blank"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
-                    <a href="https://twitter.com/ElRockde" target="_blank"><i class="fab fa-x-twitter"></i> TWITTER / X</a>
-                    <a href="https://www.tiktok.com/@elrockdetodoslosdias" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a>
+                    <a href="https://www.instagram.com/elrockdetodoslosdias/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> INSTAGRAM</a>
+                    <a href="https://www.facebook.com/ElRockdetodoslosDias" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i> FACEBOOK</a>
+                    <a href="https://twitter.com/ElRockde" target="_blank" aria-label="Twitter / X"><i class="fab fa-x-twitter" aria-hidden="true"></i> TWITTER / X</a>
+                    <a href="https://www.tiktok.com/@elrockdetodoslosdias" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i> TIKTOK</a>
                 </div>
                 <h5 class="f-title" style="margin-top:30px;">CONTACTO DIRECTO</h5>
                 <div class="f-contact-links">
-                    <a href="https://wa.me/525519204557" target="_blank"><i class="fab fa-whatsapp"></i> 55 1920 4557</a>
-                    <a href="mailto:elrockdetodoslosdias@gmail.com"><i class="far fa-envelope"></i> elrockdetodoslosdias@gmail.com</a>
-                    <a href="mailto:prensa@elrockdetodoslosdias.com.mx"><i class="far fa-envelope"></i> prensa@elrockdetodoslosdias.com.mx</a>
+                    <a href="https://wa.me/525519204557" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> 55 1920 4557</a>
+                    <a href="mailto:elrockdetodoslosdias@gmail.com" aria-label="Correo electrónico principal"><i class="far fa-envelope" aria-hidden="true"></i> elrockdetodoslosdias@gmail.com</a>
+                    <a href="mailto:prensa@elrockdetodoslosdias.com.mx" aria-label="Correo de prensa"><i class="far fa-envelope" aria-hidden="true"></i> prensa@elrockdetodoslosdias.com.mx</a>
                 </div>
             </div>
             <div class="footer-column footer-logo-col">
@@ -332,9 +451,9 @@
                 </div>
                 <h5 class="f-title" style="margin-top:30px;">COMUNIDAD</h5>
                 <div class="f-links-list">
-                    <a href="https://discord.gg/Ey7sdqwDaW" target="_blank"><i class="fab fa-discord"></i> DISCORD</a>
-                    <a href="https://www.twitch.tv/elrockdetodoslosdias" target="_blank"><i class="fab fa-twitch"></i> TWITCH</a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                    <a href="https://discord.gg/Ey7sdqwDaW" target="_blank" aria-label="Discord"><i class="fab fa-discord" aria-hidden="true"></i> DISCORD</a>
+                    <a href="https://www.twitch.tv/elrockdetodoslosdias" target="_blank" aria-label="Twitch"><i class="fab fa-twitch" aria-hidden="true"></i> TWITCH</a>
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i> YOUTUBE</a>
                 </div>
             </div>
         </div>
@@ -376,31 +495,55 @@
 
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
+    const overlay = document.getElementById('navOverlay');
+
+    function closeMenu() {
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
     burger.addEventListener('click', () => {
         menu.classList.toggle('active');
+        overlay.classList.toggle('active');
     });
 
+    overlay.addEventListener('click', closeMenu);
+
     menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 
     <!-- RADIO PLAYER -->
     <div class="radio-player" id="radioPlayer">
-        <div class="radio-toggle" id="radioToggle"><i class="fas fa-chevron-up"></i></div>
+        <div class="radio-toggle" id="radioToggle" aria-label="Alternar reproductor de radio"><i class="fas fa-chevron-up" aria-hidden="true"></i></div>
         <div class="radio-content">
             <div class="radio-live-dot"></div>
             <span class="radio-label">EN VIVO — EL ROCK DE TODOS LOS DÍAS</span>
             <audio id="zenoAudio" preload="none">
                 <source src="https://stream.zeno.fm/suqqst6xaq8uv" type="audio/mpeg">
             </audio>
-            <button class="radio-play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
-            <input type="range" class="radio-volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
-            <button class="radio-close" id="radioClose"><i class="fas fa-times"></i></button>
+            <button class="radio-play-btn" id="playPauseBtn" aria-label="Reproducir o pausar radio"><i class="fas fa-play" aria-hidden="true"></i></button>
+            <input type="range" class="radio-volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7" aria-label="Volumen">
+            <button class="radio-close" id="radioClose" aria-label="Cerrar reproductor de radio"><i class="fas fa-times" aria-hidden="true"></i></button>
         </div>
     </div>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     <script src="main.js"></script>
 </body>
